@@ -36,7 +36,6 @@ func ResourceServiceEndpointSonarQube() *schema.Resource {
 
 // Convert internal Terraform data structure to an AzDO data structure
 func expandServiceEndpointSonarQube(d *schema.ResourceData) (*serviceendpoint.ServiceEndpoint, *string, error) {
-
 	serviceEndpoint, projectID := doBaseExpansion(d)
 	serviceEndpoint.Authorization = &serviceendpoint.EndpointAuthorization{
 		Scheme: converter.String("UsernamePassword"),
@@ -51,7 +50,6 @@ func expandServiceEndpointSonarQube(d *schema.ResourceData) (*serviceendpoint.Se
 
 // Convert AzDO data structure to internal Terraform data structure
 func flattenServiceEndpointSonarQube(d *schema.ResourceData, serviceEndpoint *serviceendpoint.ServiceEndpoint, projectID *string) {
-
 	doBaseFlattening(d, serviceEndpoint, projectID)
 
 	tfhelper.HelpFlattenSecret(d, "token")
