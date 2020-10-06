@@ -1,4 +1,4 @@
-// +build all resource_serviceendpoint_dockerregistry
+// +build all resource_serviceendpoint_sonarqube
 // +build !exclude_serviceendpoints
 
 package serviceendpoint
