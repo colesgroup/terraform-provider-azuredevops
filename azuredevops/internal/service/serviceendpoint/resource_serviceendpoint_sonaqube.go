@@ -15,7 +15,7 @@ func ResourceServiceEndpointSonarQube() *schema.Resource {
 	r.Schema["url"] = &schema.Schema{
 		Type:         schema.TypeString,
 		Required:     true,
-		ValidateFunc: validation.StringIsNotWhiteSpace,
+		ValidateFunc: validation.IsURLWithHTTPorHTTPS,
 		Description:  "Url for the SonarQube Server",
 	}
 

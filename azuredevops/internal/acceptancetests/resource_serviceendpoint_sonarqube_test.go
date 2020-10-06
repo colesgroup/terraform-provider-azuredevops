@@ -53,7 +53,7 @@ func TestAccServiceEndpointSonarQube_complete(t *testing.T) {
 					testutils.CheckServiceEndpointExistsWithName(tfSvcEpNode, serviceEndpointName),
 					resource.TestCheckResourceAttrSet(tfSvcEpNode, "project_id"),
 					resource.TestCheckResourceAttrSet(tfSvcEpNode, "token_hash"),
-					resource.TestCheckResourceAttr(tfSvcEpNode, "url", "http://url.com/"),
+					resource.TestCheckResourceAttr(tfSvcEpNode, "url", "https://url.com/"),
 					resource.TestCheckResourceAttr(tfSvcEpNode, "service_endpoint_name", serviceEndpointName),
 					resource.TestCheckResourceAttr(tfSvcEpNode, "description", description),
 				),
@@ -89,7 +89,7 @@ func TestAccServiceEndpointSonarQube_update(t *testing.T) {
 					testutils.CheckServiceEndpointExistsWithName(tfSvcEpNode, serviceEndpointNameSecond),
 					resource.TestCheckResourceAttrSet(tfSvcEpNode, "project_id"),
 					resource.TestCheckResourceAttrSet(tfSvcEpNode, "token_hash"),
-					resource.TestCheckResourceAttr(tfSvcEpNode, "url", "http://url.com/2"),
+					resource.TestCheckResourceAttr(tfSvcEpNode, "url", "https://url.com/2"),
 					resource.TestCheckResourceAttr(tfSvcEpNode, "service_endpoint_name", serviceEndpointNameSecond),
 					resource.TestCheckResourceAttr(tfSvcEpNode, "description", description),
 				),
@@ -148,7 +148,7 @@ resource "azuredevops_serviceendpoint_sonarqube" "test" {
 	service_endpoint_name  = "%s"
 	description            = "%s"
 	token			   	   = "redacted"
-	url			   		   = "http://url.com/"
+	url			   		   = "https://url.com/"
 }`, serviceEndpointName, description)
 
 	projectResource := testutils.HclProjectResource(projectName)
@@ -162,7 +162,7 @@ resource "azuredevops_serviceendpoint_sonarqube" "test" {
 	service_endpoint_name  = "%s"
 	description            = "%s"
 	token			   	   = "redacted2"
-	url			   		   = "http://url.com/2"
+	url			   		   = "https://url.com/2"
 }`, serviceEndpointName, description)
 
 	projectResource := testutils.HclProjectResource(projectName)
